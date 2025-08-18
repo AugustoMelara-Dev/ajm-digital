@@ -1,7 +1,3 @@
-
-'use client';
-
-
 // --- FILE: src/lib/constants.js ---
 // Hoisting de datos estáticos para evitar recrearlos en cada render.
 // Organizar constantes en un solo lugar facilita su mantenimiento.
@@ -203,4 +199,3 @@ export const PROJECTS = [
     demo: "#"
   }
 ];
-// --- END OF FILE: src/lib/constants.js ---

@@ -1,7 +1,8 @@
+'use client';
 
 // --- FILE: src/components/ui/Badge.jsx ---
-import React, { useMemo } from "react"; // Ya importado
-import { SparklesIcon } from "lucide-react"; // Ya importado
+import React, { useMemo } from "react";
+import { SparklesIcon } from "lucide-react";
 
 /**
  * Componente de insignia (badge) estilizado.
@@ -26,4 +27,6 @@ const Badge = React.memo(function Badge({ children, tone = "sky" }) {
     </span>
   );
 });
-// --- END OF FILE: src/components/ui/Badge.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default Badge;

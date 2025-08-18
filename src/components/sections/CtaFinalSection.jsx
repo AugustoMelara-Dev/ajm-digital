@@ -1,9 +1,10 @@
+'use client';
 
 // --- FILE: src/components/sections/CtaFinalSection.jsx ---
-import { motion } from "framer-motion"; // Ya importado
-import { Section } from "@/components/ui/Section"; // En un proyecto real
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
-import { MessageCircle, ArrowRight, Phone } from "lucide-react"; // Ya importado
+import { motion } from "framer-motion";
+import { Section } from "@/components/ui/Section";
+import { useFadeUp } from "@/hooks/useFadeUp";
+import { MessageCircle, ArrowRight, Phone } from "lucide-react";
 
 function CtaFinalSection() {
     const fadeUp = useFadeUp();
@@ -39,4 +40,6 @@ function CtaFinalSection() {
         </Section>
     );
 }
-// --- END OF FILE: src/components/sections/CtaFinalSection.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default CtaFinalSection;

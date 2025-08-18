@@ -1,8 +1,9 @@
+'use client';
 
 // --- FILE: src/components/ui/FaqItem.jsx ---
-import React from "react"; // Ya importado
-import { motion } from "framer-motion"; // Ya importado
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
+import React from "react";
+import { motion } from "framer-motion";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const FaqItem = React.memo(function FaqItem({ q, a }) {
     const fadeUp = useFadeUp();
@@ -16,7 +17,8 @@ const FaqItem = React.memo(function FaqItem({ q, a }) {
     );
 });
 
-function FaqJsonLd({ faqs }) {
+// --- CORRECCIÓN: Se añade "export" a esta función ---
+export function FaqJsonLd({ faqs }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -30,4 +32,6 @@ function FaqJsonLd({ faqs }) {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
   );
 }
-// --- END OF FILE: src/components/ui/FaqItem.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea para el componente principal ---
+export default FaqItem;

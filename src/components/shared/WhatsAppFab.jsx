@@ -1,8 +1,8 @@
-
+'use client';
 
 // --- FILE: src/components/shared/WhatsAppFab.jsx ---
-import { useAnyInViewport } from "@/hooks/useAnyInViewport"; // En un proyecto real
-import { MessageCircle } from "lucide-react"; // Ya importado
+import { useAnyInViewport } from "@/hooks/useAnyInViewport";
+import { MessageCircle } from "lucide-react";
 
 function WhatsAppFab() {
   const hide = useAnyInViewport(["#site-footer", "#contacto"]);
@@ -19,4 +19,6 @@ function WhatsAppFab() {
     </a>
   );
 }
-// --- END OF FILE: src/components/shared/WhatsAppFab.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default WhatsAppFab;

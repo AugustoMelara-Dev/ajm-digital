@@ -1,10 +1,11 @@
-
+'use client';
 
 // --- FILE: src/components/cards/ProjectCard.jsx ---
 import Image from "next/image";
-import React from "react"; // Ya importado
-import { motion } from "framer-motion"; // Ya importado
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
+import React from "react";
+import { motion } from "framer-motion";
+import { useFadeUp } from "@/hooks/useFadeUp";
+import { ArrowRight } from "lucide-react"; // --- CORRECCIÓN: Se añade import que faltaba ---
 
 const ProjectCard = React.memo(function ProjectCard({ title, desc, tags, img, demo }) {
   const fadeUp = useFadeUp();
@@ -61,4 +62,6 @@ const ProjectCard = React.memo(function ProjectCard({ title, desc, tags, img, de
     </motion.div>
   );
 });
-// --- END OF FILE: src/components/cards/ProjectCard.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default ProjectCard;

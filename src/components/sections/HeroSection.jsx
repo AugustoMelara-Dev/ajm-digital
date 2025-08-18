@@ -1,10 +1,12 @@
-
+'use client';
 
 // --- FILE: src/components/sections/HeroSection.jsx ---
-import { motion } from "framer-motion"; // Ya importado
-import { Badge } from "@/components/ui/Badge"; // En un proyecto real
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
-import { CheckCircle2, MessageCircle, ArrowRight } from "lucide-react"; // Ya importado
+import { motion } from "framer-motion";
+// --- CORRECCIÓN: Se importan los componentes SIN llaves ---
+import Section from "@/components/ui/Section";
+import Badge from "@/components/ui/Badge";
+import { useFadeUp } from "@/hooks/useFadeUp";
+import { CheckCircle2, MessageCircle, ArrowRight } from "lucide-react";
 
 function HeroSection() {
     const fadeUp = useFadeUp();
@@ -67,4 +69,5 @@ function HeroSection() {
         </Section>
     );
 }
-// --- END OF FILE: src/components/sections/HeroSection.jsx ---
+
+export default HeroSection;

@@ -1,8 +1,9 @@
+'use client';
 
 // --- FILE: src/components/shared/MobileMenu.jsx ---
-import { motion, AnimatePresence } from "framer-motion";
-import { NAV_ITEMS } from "@/lib/constants"; // En un proyecto real
-import { X } from "lucide-react"; // Ya importado
+import { motion } from "framer-motion";
+import { NAV_ITEMS } from "@/lib/constants";
+import { X } from "lucide-react";
 
 function MobileMenu({ onClose }) {
   return (
@@ -56,4 +57,6 @@ function MobileMenu({ onClose }) {
     </div>
   );
 }
-// --- END OF FILE: src/components/shared/MobileMenu.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default MobileMenu;

@@ -1,12 +1,12 @@
-
+'use client';
 
 // --- FILE: src/components/sections/FaqSection.jsx ---
-import { motion } from "framer-motion"; // Ya importado
-import { Section } from "@/components/ui/Section"; // En un proyecto real
-import { FaqItem, FaqJsonLd } from "@/components/ui/FaqItem"; // En un proyecto real
-import { FAQS } from "@/lib/constants"; // En un proyecto real
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
-import { ArrowRight } from "lucide-react"; // Ya importado
+import { motion } from "framer-motion";
+import { Section } from "@/components/ui/Section";
+import { FaqItem, FaqJsonLd } from "@/components/ui/FaqItem";
+import { FAQS } from "@/lib/constants";
+import { useFadeUp } from "@/hooks/useFadeUp";
+import { ArrowRight } from "lucide-react";
 
 function FaqSection() {
     const fadeUp = useFadeUp();
@@ -24,4 +24,6 @@ function FaqSection() {
         </Section>
     );
 }
-// --- END OF FILE: src/components/sections/FaqSection.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default FaqSection;

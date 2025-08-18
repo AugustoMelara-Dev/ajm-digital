@@ -1,4 +1,3 @@
-// app/page.jsx
 'use client';
 
 import { useSmoothAnchorScroll } from '@/hooks/useSmoothAnchorScroll';

@@ -1,12 +1,12 @@
-
+'use client';
 
 // --- FILE: src/components/sections/PlansSection.jsx ---
-import { motion } from "framer-motion"; // Ya importado
-import { Section } from "@/components/ui/Section"; // En un proyecto real
-import { PriceCard } from "@/components/cards/PriceCard"; // En un proyecto real
-import { PLANS } from "@/lib/constants"; // En un proyecto real
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
-import { ShieldCheckIcon } from "lucide-react"; // Ya importado
+import { motion } from "framer-motion";
+import { Section } from "@/components/ui/Section";
+import { PriceCard } from "@/components/cards/PriceCard";
+import { PLANS } from "@/lib/constants";
+import { useFadeUp } from "@/hooks/useFadeUp";
+import { ShieldCheckIcon } from "lucide-react";
 
 function PlansSection() {
     const fadeUp = useFadeUp();
@@ -26,4 +26,6 @@ function PlansSection() {
         </Section>
     );
 }
-// --- END OF FILE: src/components/sections/PlansSection.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default PlansSection;

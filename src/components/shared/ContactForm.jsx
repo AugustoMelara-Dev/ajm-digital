@@ -1,9 +1,9 @@
+'use client';
 
-// --- FILE: src/components/shared/ContactForm.jsx ---
 import React, { useState } from "react";
-import { ArrowRight, Mail } from "lucide-react"; // Ya importado
+import { ArrowRight, Mail } from "lucide-react";
 
-function ContactForm() {
+export default function ContactForm() {
   const [ts] = useState(() => Date.now());
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
@@ -117,4 +117,3 @@ Enviado desde: ${typeof location !== 'undefined' ? location.href : 'ajmdigitalso
     </form>
   );
 }
-// --- END OF FILE: src/components/shared/ContactForm.jsx ---

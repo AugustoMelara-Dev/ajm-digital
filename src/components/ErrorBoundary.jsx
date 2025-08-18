@@ -1,6 +1,8 @@
+// --- CORRECCIÓN: Se añade la directiva "use client" ---
+'use client';
 
 // --- FILE: src/components/ErrorBoundary.jsx ---
-import React from "react"; // Ya importado
+import React from "react";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -35,4 +37,6 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
-// --- END OF FILE: src/components/ErrorBoundary.jsx ---
+
+// Se exporta el componente para que pueda ser importado en otros archivos
+export default ErrorBoundary;

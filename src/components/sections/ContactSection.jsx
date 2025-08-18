@@ -1,8 +1,9 @@
+'use client';
 
 // --- FILE: src/components/sections/ContactSection.jsx ---
-import { Section } from "@/components/ui/Section"; // En un proyecto real
-import { ContactForm } from "@/components/shared/ContactForm"; // En un proyecto real
-import { Phone, Mail, MessageCircle } from "lucide-react"; // Ya importado
+import { Section } from "@/components/ui/Section";
+import { ContactForm } from "@/components/shared/ContactForm";
+import { Phone, Mail, MessageCircle } from "lucide-react";
 
 function ContactSection() {
     return (
@@ -55,4 +56,6 @@ function ContactSection() {
         </Section>
     );
 }
-// --- END OF FILE: src/components/sections/ContactSection.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default ContactSection;

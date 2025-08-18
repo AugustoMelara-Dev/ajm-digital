@@ -1,8 +1,9 @@
+'use client';
 
 // --- FILE: src/components/ui/Step.jsx ---
-import React from "react"; // Ya importado
-import { motion } from "framer-motion"; // Ya importado
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
+import React from "react";
+import { motion } from "framer-motion";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const Step = React.memo(function Step({ n, title, desc }) {
   const fadeUp = useFadeUp();
@@ -21,4 +22,6 @@ const Step = React.memo(function Step({ n, title, desc }) {
     </motion.div>
   );
 });
-// --- END OF FILE: src/components/ui/Step.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default Step;

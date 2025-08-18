@@ -1,9 +1,10 @@
+'use client';
 
 // --- FILE: src/components/cards/ServiceCard.jsx ---
-import React from "react"; // Ya importado
-import { motion } from "framer-motion"; // Ya importado
-import { CheckCircle2, ArrowRight } from "lucide-react"; // Ya importado
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
+import React from "react";
+import { motion } from "framer-motion";
+import { CheckCircle2, ArrowRight } from "lucide-react";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const ServiceCard = React.memo(function ServiceCard({ icon: Icon, title, desc, points, time, popular }) {
   const fadeUp = useFadeUp();
@@ -49,5 +50,6 @@ const ServiceCard = React.memo(function ServiceCard({ icon: Icon, title, desc, p
     </motion.div>
   );
 });
-// --- END OF FILE: src/components/cards/ServiceCard.jsx ---
 
+// --- CORRECCIÓN: Se añade esta línea ---
+export default ServiceCard;

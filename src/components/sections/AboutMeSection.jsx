@@ -1,4 +1,4 @@
-
+'use client';
 
 // --- FILE: src/components/sections/AboutMeSection.jsx ---
 import { motion } from "framer-motion"; // Ya importado

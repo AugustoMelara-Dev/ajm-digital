@@ -1,7 +1,8 @@
+'use client';
 
 // --- FILE: src/components/ui/Section.jsx ---
 import { motion } from "framer-motion";
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 /**
  * Componente contenedor de sección con título, subtítulo y animación de entrada.
@@ -35,4 +36,6 @@ function Section({ id, title, subtitle, children, className = "" }) {
     </section>
   );
 }
-// --- END OF FILE: src/components/ui/Section.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default Section;

@@ -1,8 +1,8 @@
-
+'use client';
 
 // --- FILE: src/components/sections/ProcessSection.jsx ---
-import { Section } from "@/components/ui/Section"; // En un proyecto real
-import { Step } from "@/components/ui/Step"; // En un proyecto real
+import { Section } from "@/components/ui/Section";
+import { Step } from "@/components/ui/Step";
 
 function ProcessSection() {
     return (
@@ -16,4 +16,6 @@ function ProcessSection() {
         </Section>
     );
 }
-// --- END OF FILE: src/components/sections/ProcessSection.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default ProcessSection;

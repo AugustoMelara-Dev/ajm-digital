@@ -1,8 +1,9 @@
+'use client';
 
 // --- FILE: src/components/sections/ProjectsSection.jsx ---
-import { Section } from "@/components/ui/Section"; // En un proyecto real
-import { ProjectCard } from "@/components/cards/ProjectCard"; // En un proyecto real
-import { PROJECTS } from "@/lib/constants"; // En un proyecto real
+import { Section } from "@/components/ui/Section";
+import { ProjectCard } from "@/components/cards/ProjectCard";
+import { PROJECTS } from "@/lib/constants";
 
 function ProjectsSection() {
     return (
@@ -17,4 +18,6 @@ function ProjectsSection() {
         </Section>
     );
 }
-// --- END OF FILE: src/components/sections/ProjectsSection.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default ProjectsSection;

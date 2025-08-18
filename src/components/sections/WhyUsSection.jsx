@@ -1,9 +1,9 @@
-
+'use client';
 
 // --- FILE: src/components/sections/WhyUsSection.jsx ---
-import { Section } from "@/components/ui/Section"; // En un proyecto real
-import { ReasonCard } from "@/components/cards/ReasonCard"; // En un proyecto real
-import { REASONS } from "@/lib/constants"; // En un proyecto real
+import { Section } from "@/components/ui/Section";
+import { ReasonCard } from "@/components/cards/ReasonCard";
+import { REASONS } from "@/lib/constants";
 
 function WhyUsSection() {
     return (
@@ -14,4 +14,6 @@ function WhyUsSection() {
         </Section>
     );
 }
-// --- END OF FILE: src/components/sections/WhyUsSection.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default WhyUsSection;

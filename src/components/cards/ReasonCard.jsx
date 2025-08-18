@@ -1,8 +1,9 @@
+'use client';
 
 // --- FILE: src/components/cards/ReasonCard.jsx ---
-import React from "react"; // Ya importado
-import { motion } from "framer-motion"; // Ya importado
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
+import React from "react";
+import { motion } from "framer-motion";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const ReasonCard = React.memo(function ReasonCard({ title, desc, icon: Icon }) {
   const fadeUp = useFadeUp();
@@ -23,4 +24,6 @@ const ReasonCard = React.memo(function ReasonCard({ title, desc, icon: Icon }) {
     </motion.div>
   );
 });
-// --- END OF FILE: src/components/cards/ReasonCard.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default ReasonCard;

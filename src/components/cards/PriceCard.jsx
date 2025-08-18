@@ -1,9 +1,10 @@
+'use client';
 
 // --- FILE: src/components/cards/PriceCard.jsx ---
-import React from "react"; // Ya importado
-import { motion } from "framer-motion"; // Ya importado
-import { CheckCircle2, ShieldCheckIcon, ArrowRight } from "lucide-react"; // Ya importado
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
+import React from "react";
+import { motion } from "framer-motion";
+import { CheckCircle2, ShieldCheckIcon, ArrowRight } from "lucide-react";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const PriceCard = React.memo(function PriceCard({ ribbon, title, price, features, popular, savings }) {
   const fadeUp = useFadeUp();
@@ -54,4 +55,6 @@ const PriceCard = React.memo(function PriceCard({ ribbon, title, price, features
     </motion.div>
   );
 });
-// --- END OF FILE: src/components/cards/PriceCard.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default PriceCard;

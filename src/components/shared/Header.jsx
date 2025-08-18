@@ -1,9 +1,11 @@
+'use client';
 
 // --- FILE: src/components/shared/Header.jsx ---
 import React, { useState, useEffect, useRef } from "react";
-import { NAV_ITEMS } from "@/lib/constants"; // En un proyecto real
-import { MobileMenu } from "@/components/shared/MobileMenu"; // En un proyecto real
-import { Menu } from "lucide-react"; // Ya importado
+import { NAV_ITEMS } from "@/lib/constants";
+import { MobileMenu } from "@/components/shared/MobileMenu";
+import { Menu } from "lucide-react";
+import { AnimatePresence } from "framer-motion"; // Importación necesaria para el menú
 
 function Header() {
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -71,4 +73,6 @@ function Header() {
         </header>
     );
 }
-// --- END OF FILE: src/components/shared/Header.jsx ---
+
+// --- CORRECCIÓN: Se añade esta línea ---
+export default Header;
