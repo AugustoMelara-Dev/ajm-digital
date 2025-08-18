@@ -1,9 +1,10 @@
 'use client';
 
-// --- FILE: src/components/sections/PlansSection.jsx ---
 import { motion } from "framer-motion";
-import { Section } from "@/components/ui/Section";
-import { PriceCard } from "@/components/cards/PriceCard";
+// --- CORRECCIÓN: Se quitan las llaves de Section ---
+import Section from "@/components/ui/Section";
+// --- CORRECCIÓN: Se quitan las llaves de PriceCard ---
+import PriceCard from "@/components/cards/PriceCard";
 import { PLANS } from "@/lib/constants";
 import { useFadeUp } from "@/hooks/useFadeUp";
 import { ShieldCheckIcon } from "lucide-react";
@@ -27,5 +28,4 @@ function PlansSection() {
     );
 }
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default PlansSection;

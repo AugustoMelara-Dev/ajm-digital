@@ -1,5 +1,5 @@
 'use client';
-
+// app/page.tsx
 import { useSmoothAnchorScroll } from '@/hooks/useSmoothAnchorScroll';
 
 import WhatsAppFab from '@/components/shared/WhatsAppFab';

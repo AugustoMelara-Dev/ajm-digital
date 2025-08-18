@@ -22,4 +22,6 @@ const Step = React.memo(function Step({ n, title, desc }) {
   );
 });
 
+// --- CORRECCIÓN: Se añade el export nombrado para consistencia ---
+export { Step };
 export default Step;

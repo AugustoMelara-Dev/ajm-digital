@@ -55,4 +55,6 @@ const PriceCard = React.memo(function PriceCard({ ribbon, title, price, features
   );
 });
 
+// --- CORRECCIÓN: Se añade el export nombrado ---
+export { PriceCard };
 export default PriceCard;

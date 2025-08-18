@@ -1,9 +1,10 @@
 'use client';
 
-// --- FILE: src/components/sections/FaqSection.jsx ---
 import { motion } from "framer-motion";
-import { Section } from "@/components/ui/Section";
-import { FaqItem, FaqJsonLd } from "@/components/ui/FaqItem";
+// --- CORRECCIÓN: Se cambia a import por defecto ---
+import Section from "@/components/ui/Section";
+// --- CORRECCIÓN: Se importa FaqItem por defecto y FaqJsonLd como nombrado ---
+import FaqItem, { FaqJsonLd } from "@/components/ui/FaqItem";
 import { FAQS } from "@/lib/constants";
 import { useFadeUp } from "@/hooks/useFadeUp";
 import { ArrowRight } from "lucide-react";
@@ -25,5 +26,4 @@ function FaqSection() {
     );
 }
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default FaqSection;

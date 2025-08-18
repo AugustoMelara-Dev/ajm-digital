@@ -49,7 +49,7 @@ function HeroSection() {
                     href="https://wa.me/50496321907?text=🚀%20Hola%20Augusto%2C%20vi%20tu%20sitio%20web%20y%20me%20interesa%20una%20cotización%20para%20mi%20página%20web.%20¿Podrías%20enviarme%20información%3F"
                   >
                     <MessageCircle size={20} aria-hidden="true" />
-                    💬 Cotización GRATIS por WhatsApp
+                    Cotización GRATIS por WhatsApp
                     <span className="hidden sm:inline"><ArrowRight size={18} aria-hidden="true" /></span>
                   </a>
                 </div>

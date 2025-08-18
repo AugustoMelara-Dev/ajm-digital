@@ -21,4 +21,6 @@ const Badge = React.memo(function Badge({ children, tone = "sky" }) {
   );
 });
 
+// --- CORRECCIÓN: Se añade el export nombrado para mayor flexibilidad ---
+export { Badge };
 export default Badge;

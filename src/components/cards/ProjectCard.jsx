@@ -62,4 +62,6 @@ const ProjectCard = React.memo(function ProjectCard({ title, desc, tags, img, de
   );
 });
 
+// --- CORRECCIÓN: Se añade el export nombrado ---
+export { ProjectCard };
 export default ProjectCard;

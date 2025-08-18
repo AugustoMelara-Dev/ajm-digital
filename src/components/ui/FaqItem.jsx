@@ -31,4 +31,6 @@ export function FaqJsonLd({ faqs }) {
   );
 }
 
+// --- CORRECCIÓN: Se añade el export nombrado para consistencia ---
+export { FaqItem };
 export default FaqItem;

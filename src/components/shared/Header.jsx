@@ -1,17 +1,16 @@
 'use client';
 
-// --- FILE: src/components/shared/Header.jsx ---
 import React, { useState, useEffect, useRef } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
-import { MobileMenu } from "@/components/shared/MobileMenu";
+// --- CORRECCIÓN: Se quitan las llaves para una importación por defecto ---
+import MobileMenu from "@/components/shared/MobileMenu";
 import { Menu } from "lucide-react";
-import { AnimatePresence } from "framer-motion"; // Importación necesaria para el menú
+import { AnimatePresence } from "framer-motion";
 
 function Header() {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const openBtnRef = useRef(null);
 
-    // Efecto para gestionar el menú móvil (focus trap, cierre con ESC, etc.)
     useEffect(() => {
         if (typeof document === "undefined" || typeof window === "undefined") return;
 
@@ -74,5 +73,4 @@ function Header() {
     );
 }
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default Header;

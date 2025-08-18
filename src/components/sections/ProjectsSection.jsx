@@ -1,8 +1,8 @@
 'use client';
 
-// --- FILE: src/components/sections/ProjectsSection.jsx ---
-import { Section } from "@/components/ui/Section";
-import { ProjectCard } from "@/components/cards/ProjectCard";
+// --- CORRECCIÓN: Se quitan las llaves para imports por defecto ---
+import Section from "@/components/ui/Section";
+import ProjectCard from "@/components/cards/ProjectCard";
 import { PROJECTS } from "@/lib/constants";
 
 function ProjectsSection() {
@@ -19,5 +19,4 @@ function ProjectsSection() {
     );
 }
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default ProjectsSection;

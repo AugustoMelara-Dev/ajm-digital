@@ -1,8 +1,8 @@
 'use client';
 
-// --- FILE: src/components/sections/CtaFinalSection.jsx ---
 import { motion } from "framer-motion";
-import { Section } from "@/components/ui/Section";
+// --- CORRECCIÓN: Se quitan las llaves para una importación por defecto ---
+import Section from "@/components/ui/Section";
 import { useFadeUp } from "@/hooks/useFadeUp";
 import { MessageCircle, ArrowRight, Phone } from "lucide-react";
 
@@ -41,5 +41,4 @@ function CtaFinalSection() {
     );
 }
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default CtaFinalSection;

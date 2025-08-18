@@ -27,4 +27,6 @@ function Section({ id, title, subtitle, children, className = "" }) {
   );
 }
 
+// --- CORRECCIÓN: Se añade el export nombrado para consistencia y flexibilidad ---
+export { Section };
 export default Section;
