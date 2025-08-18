@@ -1,6 +1,5 @@
 'use client';
 
-// --- FILE: src/components/ui/FaqItem.jsx ---
 import React from "react";
 import { motion } from "framer-motion";
 import { useFadeUp } from "@/hooks/useFadeUp";
@@ -17,7 +16,6 @@ const FaqItem = React.memo(function FaqItem({ q, a }) {
     );
 });
 
-// --- CORRECCIÓN: Se añade "export" a esta función ---
 export function FaqJsonLd({ faqs }) {
   const data = {
     "@context": "https://schema.org",
@@ -33,5 +31,4 @@ export function FaqJsonLd({ faqs }) {
   );
 }
 
-// --- CORRECCIÓN: Se añade esta línea para el componente principal ---
 export default FaqItem;

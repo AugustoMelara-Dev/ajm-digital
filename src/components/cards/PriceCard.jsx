@@ -1,6 +1,5 @@
 'use client';
 
-// --- FILE: src/components/cards/PriceCard.jsx ---
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ShieldCheckIcon, ArrowRight } from "lucide-react";
@@ -56,5 +55,4 @@ const PriceCard = React.memo(function PriceCard({ ribbon, title, price, features
   );
 });
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default PriceCard;

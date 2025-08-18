@@ -1,15 +1,8 @@
 'use client';
 
-// --- FILE: src/components/ui/Badge.jsx ---
 import React, { useMemo } from "react";
 import { SparklesIcon } from "lucide-react";
 
-/**
- * Componente de insignia (badge) estilizado.
- * @param {object} props
- * @param {React.ReactNode} props.children - Contenido del badge.
- * @param {'sky'|'cyan'|'amber'|'rose'|'emerald'} [props.tone='sky'] - Tonalidad de color.
- */
 const Badge = React.memo(function Badge({ children, tone = "sky" }) {
   const tones = useMemo(
     () => ({
@@ -28,5 +21,4 @@ const Badge = React.memo(function Badge({ children, tone = "sky" }) {
   );
 });
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default Badge;

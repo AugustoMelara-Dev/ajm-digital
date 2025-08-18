@@ -1,11 +1,10 @@
 'use client';
 
-// --- FILE: src/components/cards/ProjectCard.jsx ---
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useFadeUp } from "@/hooks/useFadeUp";
-import { ArrowRight } from "lucide-react"; // --- CORRECCIÓN: Se añade import que faltaba ---
+import { ArrowRight } from "lucide-react";
 
 const ProjectCard = React.memo(function ProjectCard({ title, desc, tags, img, demo }) {
   const fadeUp = useFadeUp();
@@ -15,9 +14,9 @@ const ProjectCard = React.memo(function ProjectCard({ title, desc, tags, img, de
         <Image
           src={img}
           alt={`Proyecto de página web para: ${title}`}
-          fill // 'fill' hace que la imagen cubra el contenedor padre
+          fill
           className="object-cover"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // Ayuda a Next.js a servir la imagen del tamaño correcto
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </div>
       <div className="p-6">
@@ -63,5 +62,4 @@ const ProjectCard = React.memo(function ProjectCard({ title, desc, tags, img, de
   );
 });
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default ProjectCard;

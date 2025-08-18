@@ -1,6 +1,5 @@
 'use client';
 
-// --- FILE: src/components/cards/ReasonCard.jsx ---
 import React from "react";
 import { motion } from "framer-motion";
 import { useFadeUp } from "@/hooks/useFadeUp";
@@ -25,5 +24,4 @@ const ReasonCard = React.memo(function ReasonCard({ title, desc, icon: Icon }) {
   );
 });
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default ReasonCard;

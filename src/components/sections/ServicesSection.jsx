@@ -1,8 +1,7 @@
 'use client';
 
-// --- FILE: src/components/sections/ServicesSection.jsx ---
-import { Section } from "@/components/ui/Section";
-import { ServiceCard } from "@/components/cards/ServiceCard";
+import Section from "@/components/ui/Section"; // Corregido
+import ServiceCard from "@/components/cards/ServiceCard"; // Corregido
 import { SERVICES } from "@/lib/constants";
 
 function ServicesSection() {
@@ -15,5 +14,4 @@ function ServicesSection() {
     );
 }
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default ServicesSection;

@@ -1,11 +1,10 @@
 'use client';
 
-// --- FILE: src/components/sections/AboutMeSection.jsx ---
-import { motion } from "framer-motion"; // Ya importado
-import Image from "next/image"; // Ya importado
-import { Section } from "@/components/ui/Section"; // En un proyecto real
-import { useFadeUp } from "@/hooks/useFadeUp"; // En un proyecto real
-import { LayersIcon, Award } from "lucide-react"; // Ya importado
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Section from "@/components/ui/Section"; // Corregido
+import { useFadeUp } from "@/hooks/useFadeUp";
+import { LayersIcon, Award } from "lucide-react";
 
 function AboutMeSection() {
   const fadeUp = useFadeUp();
@@ -17,16 +16,9 @@ function AboutMeSection() {
     >
       <motion.div {...fadeUp} className="grid lg:grid-cols-5 gap-8 items-start">
         <div className="lg:col-span-2">
-            {/* NOTA SOBRE LA FOTO PERSONAL:
-                Usar una foto tuya real y profesional es una EXCELENTE idea. Genera confianza
-                inmediata, te humaniza y te diferencia de agencias anónimas. Los clientes,
-                especialmente en un mercado local como Honduras, valoran saber con quién
-                están tratando. Te recomiendo una foto con buena iluminación donde se te vea
-                amigable y profesional. ¡Es un 'boom' para la conversión!
-            */}
             <div className="aspect-square rounded-3xl bg-slate-100 relative overflow-hidden shadow-lg">
                 <Image
-                    src="https://placehold.co/600x600/a3a3a3/ffffff?text=Augusto" // Se usa placeholder
+                    src="https://placehold.co/600x600/a3a3a3/ffffff?text=Augusto"
                     alt="Foto de Augusto José Melara Milla, desarrollador web en Honduras"
                     fill
                     className="object-cover"
@@ -72,4 +64,5 @@ function AboutMeSection() {
     </Section>
   );
 }
-// --- END OF FILE: src/components/sections/AboutMeSection.jsx ---
+
+export default AboutMeSection;

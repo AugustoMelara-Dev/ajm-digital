@@ -1,18 +1,8 @@
 'use client';
 
-// --- FILE: src/components/ui/Section.jsx ---
 import { motion } from "framer-motion";
 import { useFadeUp } from "@/hooks/useFadeUp";
 
-/**
- * Componente contenedor de sección con título, subtítulo y animación de entrada.
- * @param {object} props
- * @param {string} props.id - El ID del elemento <section>.
- * @param {string} [props.title] - Título principal de la sección.
- * @param {string} [props.subtitle] - Subtítulo o párrafo introductorio.
- * @param {React.ReactNode} props.children - Contenido de la sección.
- * @param {string} [props.className] - Clases CSS adicionales.
- */
 function Section({ id, title, subtitle, children, className = "" }) {
   const fadeUp = useFadeUp();
   return (
@@ -37,5 +27,4 @@ function Section({ id, title, subtitle, children, className = "" }) {
   );
 }
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default Section;

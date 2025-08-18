@@ -1,6 +1,5 @@
 'use client';
 
-// --- FILE: src/components/cards/ServiceCard.jsx ---
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
@@ -51,5 +50,4 @@ const ServiceCard = React.memo(function ServiceCard({ icon: Icon, title, desc, p
   );
 });
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default ServiceCard;

@@ -1,8 +1,7 @@
 'use client';
 
-// --- FILE: src/components/sections/ProcessSection.jsx ---
-import { Section } from "@/components/ui/Section";
-import { Step } from "@/components/ui/Step";
+import Section from "@/components/ui/Section"; // Corregido
+import Step from "@/components/ui/Step"; // Corregido
 
 function ProcessSection() {
     return (
@@ -17,5 +16,4 @@ function ProcessSection() {
     );
 }
 
-// --- CORRECCIÓN: Se añade esta línea ---
 export default ProcessSection;
