@@ -1,0 +1,52 @@
+
+// --- FILE: src/app/layout.jsx ---
+// Este archivo define la estructura HTML base de tu aplicación.
+// Incluye SEO, fuentes, header, footer y el ErrorBoundary.
+
+/**
+ * Metadata para SEO. Next.js lo usará para generar las etiquetas <head>.
+ */
+export const metadata = {
+  title: "Páginas Web en Honduras | AJM Digital Solutions (72h)",
+  description: "Diseño web profesional en Honduras: landing en 72h, sitios corporativos, e-commerce y SEO. Hosting+SSL 1 año y garantía de 7 días.",
+  canonical: "https://ajmdigitalsolutions.com",
+  openGraph: {
+    type: "website",
+    title: "Páginas Web en Honduras | AJM Digital Solutions",
+    description: "Landing en 72h, sitios corporativos, e-commerce y SEO. Precios claros y garantía.",
+    url: "https://ajmdigitalsolutions.com",
+    images: [{ url: "https://ajmdigitalsolutions.com/og-image.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
+
+/**
+ * El Layout principal de la aplicación.
+ * @param {object} props
+ * @param {React.ReactNode} props.children - El contenido de la página actual (page.jsx).
+ */
+export default function RootLayout({ children }) {
+    // NOTA: En un proyecto real, aquí importarías tus fuentes con next/font
+    // y no necesitarías `useSmoothAnchorScroll` aquí si lo llamas en la página.
+    return (
+        <html lang="es-HN" className="scroll-pt-24">
+            <body>
+                <ErrorBoundary>
+                    <a href="#contenido" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:px-3 focus:py-2 focus:rounded">
+                        Saltar al contenido
+                    </a>
+                    <div className="min-h-screen bg-white text-slate-900">
+                        <Header />
+                        <main id="contenido">
+                            {children}
+                        </main>
+                        <Footer />
+                    </div>
+                </ErrorBoundary>
+            </body>
+        </html>
+    );
+}
+// --- END OF FILE: src/app/layout.jsx ---
