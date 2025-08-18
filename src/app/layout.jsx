@@ -1,7 +1,12 @@
-
 // --- FILE: src/app/layout.jsx ---
 // Este archivo define la estructura HTML base de tu aplicación.
 // Incluye SEO, fuentes, header, footer y el ErrorBoundary.
+
+// --- CORRECCIÓN: Se añaden los imports que faltaban ---
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import './globals.css'; // Importante para los estilos
 
 /**
  * Metadata para SEO. Next.js lo usará para generar las etiquetas <head>.
