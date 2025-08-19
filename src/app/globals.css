@@ -1,107 +1,33 @@
-/* app/globals.css — Diseño Profesional */
+/* app/globals.css — siempre claro */
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #1e40af;
-  --primary-hover: #1d4ed8;
-  --secondary: #64748b;
-  --accent: #059669;
-  --border: #e2e8f0;
-  --muted: #f8fafc;
+  --foreground: #0f172a; /* slate-900 */
 }
 
 @layer base {
   :root {
     color-scheme: light;
   }
+}
 
-  * {
-    @apply border-border;
-  }
+html,
+body {
+  height: 100%;
+}
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  body {
-    @apply bg-background text-foreground font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-  }
-
-  /* Typography Scale */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-slate-900 leading-tight;
-  }
-
-  h1 { @apply text-4xl lg:text-5xl; }
-  h2 { @apply text-3xl lg:text-4xl; }
-  h3 { @apply text-2xl lg:text-3xl; }
-  h4 { @apply text-xl lg:text-2xl; }
-  h5 { @apply text-lg lg:text-xl; }
-  h6 { @apply text-base lg:text-lg; }
-
-  /* Professional Button Styles */
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-lg border border-slate-300 transition-all duration-200 shadow-sm hover:shadow-md focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:outline-none;
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-transparent hover:bg-slate-50 text-slate-700 font-medium rounded-lg border border-slate-300 transition-all duration-200 focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:outline-none;
-  }
-
-  /* Card Styles */
-  .card {
-    @apply bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200;
-  }
-
-  .card-hover {
-    @apply hover:-translate-y-1 hover:shadow-lg;
-  }
-
-  /* Professional spacing system */
-  .section-padding {
-    @apply py-16 lg:py-24;
-  }
-
-  .container-custom {
-    @apply w-full max-w-6xl mx-auto px-6 lg:px-8;
-  }
-
-  /* Focus states for accessibility */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
-  }
-
-  /* Professional text colors */
-  .text-muted {
-    @apply text-slate-600;
-  }
-
-  .text-subtle {
-    @apply text-slate-500;
-  }
-
-  /* Animation utilities */
-  .fade-up {
-    @apply opacity-0 translate-y-4 transition-all duration-500 ease-out;
-  }
-
-  .fade-up.in-view {
-    @apply opacity-100 translate-y-0;
+    scroll-behavior: auto;
   }
 }
