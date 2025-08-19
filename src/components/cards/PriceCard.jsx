@@ -26,7 +26,8 @@ const PriceCard = React.memo(function PriceCard({ ribbon, title, price, features
           </span>
         </div>
       )}
-      <h4 className="text-slate-900 font-bold text-lg leading-snug">{title}</h4>
+      {/* --- CORRECCIÓN SEO: Se cambia h4 por h3 --- */}
+      <h3 className="text-slate-900 font-bold text-lg leading-snug">{title}</h3>
       <div className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-cyan-500 mt-1">
         {price}
       </div>
@@ -55,6 +56,5 @@ const PriceCard = React.memo(function PriceCard({ ribbon, title, price, features
   );
 });
 
-// --- CORRECCIÓN: Se añade el export nombrado ---
 export { PriceCard };
 export default PriceCard;
