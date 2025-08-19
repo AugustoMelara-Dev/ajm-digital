@@ -169,7 +169,7 @@ export const FAQS = [
 export const NAV_ITEMS = [
   ["Inicio", "#inicio"],
   ["Servicios", "#servicios"],
-  ["Proyectos", "#proyectos"],
+  // ["Proyectos", "#proyectos"], // REMOVIDO
   ["¿Por qué nosotros?", "#por-que"],
   ["Planes", "#planes"],
   ["Sobre Mí", "#sobre"],

@@ -1,11 +1,11 @@
 'use client';
-// app/page.tsx
+// app/page.jsx
 import { useSmoothAnchorScroll } from '@/hooks/useSmoothAnchorScroll';
 
 import WhatsAppFab from '@/components/shared/WhatsAppFab';
 import HeroSection from '@/components/sections/HeroSection';
 import ServicesSection from '@/components/sections/ServicesSection';
-import ProjectsSection from '@/components/sections/ProjectsSection';
+// import ProjectsSection from '@/components/sections/ProjectsSection'; // REMOVIDO
 import WhyUsSection from '@/components/sections/WhyUsSection';
 import ProcessSection from '@/components/sections/ProcessSection';
 import PlansSection from '@/components/sections/PlansSection';
@@ -21,7 +21,7 @@ export default function Page() {
       <WhatsAppFab />
       <HeroSection />
       <ServicesSection />
-      <ProjectsSection />
+      {/* <ProjectsSection /> */} {/* REMOVIDO TEMPORALMENTE */}
       <WhyUsSection />
       <ProcessSection />
       <PlansSection />
