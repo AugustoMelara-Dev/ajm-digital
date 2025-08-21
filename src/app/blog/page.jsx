@@ -1,39 +1,67 @@
-// src/app/blog/page.jsx
-// Este es un Server Component, NO debe tener 'use client' ni importar hooks de cliente directamente aquí.
+// --- FILE: src/app/blog/page.jsx ---
+// Server Component (sin 'use client'): índice del blog con SEO pulido y grid de posts.
+
 import { getAllPostsMeta } from '@/lib/blog';
 import PostCard from '@/components/blog/PostCard';
 import Section from '@/components/ui/Section';
-import BlogHeroSection from '@/components/blog/BlogHeroSection'; // Importa el NUEVO componente cliente
+import BlogHeroSection from '@/components/blog/BlogHeroSection';
 
-// Metadatos para SEO de la página principal del blog (Server Component)
-export const metadata = {
-  title: 'Blog | AJM Digital Solutions',
-  description:
-    'Guías prácticas sobre páginas web, tiendas en línea, SEO y casos reales en Honduras.',
-  alternates: { canonical: '/blog' },
-  openGraph: {
-    type: 'website',
-    url: '/blog',
+// Revalidación ISR: refresca la lista de posts cada hora
+export const revalidate = 3600;
+
+export function generateMetadata() {
+  const envBase = process.env.NEXT_PUBLIC_SITE_URL || 'https://ajmdigitalsolutions.com';
+  let base = envBase;
+  try {
+    base = new URL(envBase).origin;
+  } catch {
+    base = 'https://ajmdigitalsolutions.com';
+  }
+  const canonical = `${base}/blog`;
+
+  return {
     title: 'Blog | AJM Digital Solutions',
     description:
-      'Consejos y estrategias para que tu web venda más en Honduras.',
-  },
-};
+      'Guías prácticas sobre sitios web, e-commerce, SEO técnico y casos reales. Contenido directo, profesional y accionable.',
+    alternates: {
+      canonical,
+      types: { 'application/rss+xml': `${base}/blog/feed.xml` },
+    },
+    openGraph: {
+      type: 'website',
+      url: canonical,
+      title: 'Blog | AJM Digital Solutions',
+      description:
+        'Consejos y estrategias para que tu presencia digital rinda al máximo.',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Blog | AJM Digital Solutions',
+      description:
+        'Estrategia, tecnología y diseño con estándares de clase mundial.',
+    },
+  };
+}
 
-// Componente de la página principal del blog (Server Component)
 export default function BlogIndexPage() {
-  const posts = getAllPostsMeta();
+  const posts = getAllPostsMeta(); // por defecto omite drafts
 
   return (
     <>
-      {/* Renderiza el componente cliente de la sección de bienvenida */}
+      {/* Héroe del blog (Client Component controlado internamente) */}
       <BlogHeroSection />
 
-      {/* Sección con la lista de artículos */}
-      <Section id="articulos" title="Últimos Artículos" subtitle="Explora nuestras guías y consejos para el éxito digital de tu negocio.">
+      {/* Listado de artículos */}
+      <Section
+        id="articulos"
+        title="Últimos artículos"
+        subtitle="Guías y aprendizajes para construir productos y sitios que convierten."
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {posts.length === 0 ? (
-            <div className="text-slate-600 text-center col-span-full">Pronto publicaremos nuestro primer artículo. ¡Vuelve pronto!</div>
+            <div className="text-slate-600 text-center col-span-full">
+              Pronto publicaremos nuestro primer artículo. Vuelve en breve.
+            </div>
           ) : (
             posts.map((p) => <PostCard key={p.slug} post={p} />)
           )}

@@ -1,4 +1,5 @@
-'use client'; // Este componente ES un Cliente Component
+// --- FILE: src/components/blog/BlogHeroSection.jsx ---
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -7,53 +8,86 @@ import { MessageCircle, ArrowRight } from 'lucide-react';
 import { useFadeUp } from '@/hooks/useFadeUp';
 
 /**
- * Componente Cliente para la sección de bienvenida del blog.
- * Contiene animaciones y lógica interactiva.
+ * Hero del blog — sobrio, multinacional y accesible.
+ * Sin degradados pesados ni emojis; foco en claridad y confianza.
  */
 export default function BlogHeroSection() {
   const fadeUp = useFadeUp();
 
   return (
-    <section className="relative py-16 md:py-24 bg-white overflow-hidden min-h-[60vh]"> {/* CORRECCIÓN: Se quitó el degradado, ahora es fondo blanco */}
-      {/* Fondo sutil (se mantiene el patrón de círculos si lo deseas) */}
-      <div className="absolute inset-0 opacity-30">
-        <svg className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <pattern id="pattern-circles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-            <circle cx="10" cy="10" r="1" fill="#e0f2fe" />
+    <section
+      aria-labelledby="blog-hero-title"
+      className="relative py-16 md:py-24 bg-white overflow-hidden"
+    >
+      {/* Fondo sutil opcional (pattern muy tenue) */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06]">
+        <svg className="w-full h-full" aria-hidden="true">
+          <pattern id="tiny-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="1" fill="#0f172a" />
           </pattern>
-          <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)" />
+          <rect width="100%" height="100%" fill="url(#tiny-dots)" />
         </svg>
       </div>
 
       <div className="relative z-10 w-[92%] max-w-[900px] mx-auto text-center">
+        {/* Autor (opcional) */}
         <motion.div {...fadeUp} className="mb-8">
-          {/* Tu foto de perfil */}
-          <div className="relative w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-sky-300 shadow-lg">
+          <div className="relative w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-slate-200 shadow-sm">
             <Image
-              src="/blog/author-augusto.jpg" // RUTA DE TU FOTO DE PERFIL (Crea esta imagen en public/blog/)
-              alt="Augusto José Melara Milla - Autor del Blog"
+              src="/blog/author-augusto.jpg"
+              alt="Augusto J. Melara — autor"
               fill
               className="object-cover"
               sizes="96px"
-              priority={true}
+              priority
             />
           </div>
-          <p className="mt-4 text-sm font-semibold text-sky-700">Augusto Jose Melara Milla</p>
+          <p className="mt-4 text-xs font-medium tracking-wide text-slate-600 uppercase">
+            Por Augusto J. Melara
+          </p>
         </motion.div>
 
-        <motion.h1 {...fadeUp} className="text-balance text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-          Bienvenido al Blog de <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">AJM Digital Solutions</span>
-        </motion.h1>
-        <motion.p {...fadeUp} className="text-slate-700 mt-4 max-w-2xl mx-auto leading-relaxed text-lg">
-          Aquí, comparto guías prácticas, estrategias de marketing digital y casos reales para ayudarte a **transformar tu negocio en Honduras** con una presencia online efectiva.
+        {/* Eyebrow */}
+        <motion.p
+          {...fadeUp}
+          className="inline-block mb-3 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-medium tracking-wide text-slate-600"
+        >
+          Blog · Diseño, desarrollo y estrategia
         </motion.p>
-        <motion.div {...fadeUp} className="mt-8">
+
+        {/* Título */}
+        <motion.h1
+          {...fadeUp}
+          id="blog-hero-title"
+          className="text-balance text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight"
+        >
+          Ideas y guías prácticas para hacer crecer tu presencia digital
+        </motion.h1>
+
+        {/* Subtítulo */}
+        <motion.p
+          {...fadeUp}
+          className="text-slate-700 mt-4 max-w-2xl mx-auto leading-relaxed text-lg"
+        >
+          Estrategia, UX/UI, rendimiento y SEO técnico. Contenido directo, sin humo:
+          lo que funciona hoy para sitios y apps que convierten.
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div {...fadeUp} className="mt-8 flex items-center justify-center gap-3">
           <a
-            href="/#contacto" // Enlace a tu sección de contacto o un formulario de suscripción
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold bg-sky-600 hover:bg-sky-500 text-white transition-colors shadow-lg"
+            href="/#contacto"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold bg-slate-900 text-white hover:opacity-90 transition"
           >
-            💬 ¿Tienes una pregunta? Contáctame
+            <MessageCircle size={18} aria-hidden="true" />
+            Enviar una pregunta
             <ArrowRight size={18} aria-hidden="true" />
+          </a>
+          <a
+            href="#posts"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold border border-slate-200 text-slate-900 hover:bg-slate-50 transition"
+          >
+            Ver artículos
           </a>
         </motion.div>
       </div>

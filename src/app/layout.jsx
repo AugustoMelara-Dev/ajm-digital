@@ -1,101 +1,118 @@
-// --- FILE: src/app/layout.jsx ---
-// Este archivo define la estructura HTML base de tu aplicación.
-// Incluye SEO, fuentes, header, footer y el ErrorBoundary.
+// Layout global: sin FOUC de tema, <html lang> dinámico, Inter, Header/Footer y Schema.org
 
-// --- CORRECCIÓN: Se añaden los imports que faltaban ---
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
 import ErrorBoundary from '@/components/ErrorBoundary';
-import './globals.css'; // Importante para los estilos
-import Script from 'next/script'; // Importa el componente Script
+import './globals.css';
+import Script from 'next/script';
+import { Inter } from 'next/font/google';
 
-/**
- * Metadata para SEO. Next.js lo usará para generar las etiquetas <head>.
- */
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+
 export const metadata = {
-  title: "Páginas Web en Honduras | AJM Digital Solutions (72h)",
-  description: "Diseño web profesional en Honduras: landing en 72h, sitios corporativos, e-commerce y SEO. Hosting+SSL 1 año y garantía de 7 días.",
-  canonical: "https://ajmdigitalsolutions.com",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  title: { default: 'AJM Digital Solutions', template: '%s | AJM Digital Solutions' },
+  description:
+    'Desarrollo web y apps para negocios: sitios corporativos, landing pages y e-commerce. Diseño sobrio, rendimiento alto y plazos serios.',
   openGraph: {
-    type: "website",
-    title: "Páginas Web en Honduras | AJM Digital Solutions",
-    description: "Landing en 72h, sitios corporativos, e-commerce y SEO. Precios claros y garantía.",
-    url: "https://ajmdigitalsolutions.com",
-    images: [{ url: "https://ajmdigitalsolutions.com/og-image.jpg" }],
+    type: 'website',
+    url: '/',
+    siteName: 'AJM Digital Solutions',
+    title: 'AJM Digital Solutions',
+    description: 'Sitios rápidos, claros y listos para vender. Trato directo con el desarrollador.',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+    locale: 'es',
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
+    title: 'AJM Digital Solutions',
+    description: 'Desarrollo web que convierte, sin vueltas.',
+    images: ['/opengraph-image.png'],
   },
+  alternates: {
+    canonical: '/',
+    languages: { es: '/', en: '/en' },
+    types: { 'application/rss+xml': '/blog/feed.xml' },
+  },
+  robots: { index: true, follow: true },
 };
 
-/**
- * El Layout principal de la aplicación.
- * @param {object} props
- * @param {React.ReactNode} props.children - El contenido de la página actual (page.jsx).
- */
 export default function RootLayout({ children }) {
-  // NOTA: En un proyecto real, aquí importarías tus fuentes con next/font
-  // y no necesitarías `useSmoothAnchorScroll` aquí si lo llamas en la página.
+  const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const tel = process.env.NEXT_PUBLIC_WA_NUMBER
+    ? `+${String(process.env.NEXT_PUBLIC_WA_NUMBER).replace(/\D/g, '')}`
+    : undefined;
+
+  const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'AJM Digital Solutions',
+    url: base,
+    logo: `${base}/opengraph-image.png`,
+    areaServed: 'Global',
+    sameAs: [],
+    contactPoint: tel
+      ? [{ '@type': 'ContactPoint', contactType: 'customer support', telephone: tel, availableLanguage: ['es', 'en'] }]
+      : undefined,
+  };
+
   return (
-    <html lang="es-HN" className="scroll-pt-24">
-      <body>
+    <html lang="es" className="scroll-pt-24" suppressHydrationWarning>
+      <head>
+        {/* Anti-FOUC: aplica tema (dark/light) y lang antes de hidratar */}
+        <Script
+          id="theme-and-lang-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+  try{
+    var d = document.documentElement;
+    // 1) Idioma: storage > navegador > 'es'
+    var LSK='locale';
+    var loc = localStorage.getItem(LSK);
+    if(!loc){
+      var nav = navigator;
+      var cand = (nav.language || (nav.languages && nav.languages[0]) || 'es') + '';
+      loc = cand.slice(0,2).toLowerCase();
+      if(loc!=='es' && loc!=='en') loc='es';
+    } else {
+      loc = (loc+'').slice(0,2).toLowerCase();
+    }
+    d.setAttribute('lang', loc);
+    d.dataset.locale = loc;
+
+    // 2) Tema: storage > prefers-color-scheme
+    var themeLSK = 'theme';
+    var saved = localStorage.getItem(themeLSK);
+    var wantDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (wantDark) d.classList.add('dark'); else d.classList.remove('dark');
+  }catch(e){}
+})();`,
+          }}
+        />
+      </head>
+      <body className={`${inter.variable} font-sans antialiased bg-[var(--bg)] text-[var(--fg)]`}>
         <ErrorBoundary>
-          <a href="#contenido" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:px-3 focus:py-2 focus:rounded">
+          <a
+            href="#contenido"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:px-3 focus:py-2 focus:rounded"
+          >
             Saltar al contenido
           </a>
-          <div className="min-h-screen bg-white text-slate-900">
+          <div className="min-h-screen">
             <Header />
-            <main id="contenido">
-              {children}
-            </main>
+            <main id="contenido">{children}</main>
             <Footer />
           </div>
         </ErrorBoundary>
 
-        {/* --- CORRECCIÓN SEO: Se añade el Schema de LocalBusiness --- */}
         <Script
-          id="local-business-schema"
+          id="org-schema"
           type="application/ld+json"
-          strategy="lazyOnload"
-        >
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "AJM Digital Solutions",
-              "image": "https://www.ajmdigital.com/opengraph-image.png",
-              "url": "https://www.ajmdigital.com",
-              "telephone": "+50495393226",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Barrio La Lempira, 31101",
-                "addressLocality": "Tocoa",
-                "addressRegion": "Colón",
-                "addressCountry": "HN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "15.6881267",
-                "longitude": "-86.0020359"
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "17:00"
-              }
-            }
-          `}
-        </Script>
-
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
       </body>
     </html>
   );
 }
-// --- END OF FILE: src/app/layout.jsx ---

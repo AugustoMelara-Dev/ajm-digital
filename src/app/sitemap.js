@@ -1,38 +1,47 @@
-// app/sitemap.js
-import { getAllPostsMeta } from '@/lib/blog'; // Importa la función para obtener metadatos de los posts
+// --- FILE: src/app/sitemap.js ---
+import { getAllPostsMeta } from '@/lib/blog';
 
+/**
+ * @returns {import('next').MetadataRoute.Sitemap}
+ */
 export default function sitemap() {
-  // Asegúrate de que NEXT_PUBLIC_SITE_URL esté configurado en tus variables de entorno
-  // para que el sitemap genere URLs absolutas correctas en producción.
-  const base = (process.env.NEXT_PUBLIC_SITE_URL || 'https://ajmdigitalsolutions.com').replace(/\/$/, '');
+  // Base canonical (sin slash final)
+  const envBase = process.env.NEXT_PUBLIC_SITE_URL || 'https://ajmdigitalsolutions.com';
+  let base = envBase;
+  try {
+    base = new URL(envBase).origin; // normaliza y asegura esquema
+  } catch {
+    base = 'https://ajmdigitalsolutions.com';
+  }
 
-  // Obtiene los metadatos de todos los posts del blog
-  const posts = getAllPostsMeta().map((p) => ({
-    url: `${base}/blog/${p.slug}`,
-    lastModified: p.date, // Usa la fecha del post como lastModified
-    changeFrequency: 'weekly', // Los blogs suelen actualizarse semanalmente o mensualmente
-    priority: 0.7, // Prioridad ligeramente menor que la página principal
-  }));
+  const baseUrl = base.replace(/\/$/, '');
+
+  // Blog posts
+  const posts =
+    getAllPostsMeta().map((p) => ({
+      url: `${baseUrl}/blog/${p.slug}`,
+      lastModified: new Date(p.date).toISOString(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })) || [];
 
   return [
     {
-      url: `${base}/`,
-      lastModified: new Date(),
+      url: `${baseUrl}/`,
+      lastModified: new Date().toISOString(),
       changeFrequency: 'monthly',
       priority: 1,
-      images: [`${base}/og-image.jpg`], // Asegúrate de que esta imagen exista en /public
     },
     {
-      url: `${base}/blog`, // Añade la URL principal del blog
-      lastModified: new Date(),
+      url: `${baseUrl}/blog`,
+      lastModified: new Date().toISOString(),
       changeFrequency: 'weekly',
-      priority: 0.9, // Una prioridad alta para la página índice del blog
+      priority: 0.9,
     },
-    // Aquí puedes añadir más páginas estáticas si las tienes (ej. /servicios, /contacto)
-    // { url: `${base}/servicios`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    // { url: `${base}/contacto`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    // Añade aquí otras páginas estáticas si existen:
+    // { url: `${baseUrl}/servicios`, lastModified: new Date().toISOString(), changeFrequency: 'monthly', priority: 0.8 },
+    // { url: `${baseUrl}/contacto`, lastModified: new Date().toISOString(), changeFrequency: 'monthly', priority: 0.8 },
 
-    // Añade todas las URLs de los posts del blog
     ...posts,
   ];
 }

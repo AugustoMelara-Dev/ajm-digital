@@ -1,33 +1,62 @@
-/* app/globals.css — siempre claro */
+/* --- FILE: src/app/globals.css --- */
+/* Base premium: tipografía clara, foco visible, selección sutil y utilidades coherentes */
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #0f172a; /* slate-900 */
+  --brand: #1E40AF;      /* azul corporativo */
+  --brand-contrast: #ffffff;
+  --success: #16A34A;
+  --radius-xl: 14px;
+  --radius-2xl: 16px;
 }
 
 @layer base {
-  :root {
-    color-scheme: light;
+  :root { color-scheme: light; }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Selección y foco sobrios (AA) */
+  ::selection { background: rgba(30, 64, 175, 0.15); }
+  :focus-visible { outline: 2px solid rgba(30, 64, 175, 0.65); outline-offset: 3px; }
+
+  /* Enlaces elegantes por defecto */
+  a { text-underline-offset: 2px; text-decoration-thickness: 0.08em; }
+  a:hover { text-decoration-thickness: 0.1em; }
+
+  /* Medios responsivos por defecto */
+  img, video, canvas, svg { display: block; max-width: 100%; height: auto; }
 }
 
-html,
-body {
-  height: 100%;
-}
-body {
-  background: var(--background);
-  color: var(--foreground);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+/* Desplazamiento suave — respetando accesibilidad */
+html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Utilidades coherentes para toda la UI */
+@layer utilities {
+  .container-tight { @apply mx-auto max-w-6xl px-4; }
+  .section-y { @apply py-16 md:py-20; }
+  .shadow-card { box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 8px 20px rgba(0,0,0,.08); }
+  .rounded-xl { border-radius: var(--radius-xl); }
+  .rounded-2xl { border-radius: var(--radius-2xl); }
+}
+
+/* Prose (MDX/blog) pulida */
+@layer components {
+  .prose { @apply max-w-none; }
+  .prose img { @apply rounded-xl; }
 }
